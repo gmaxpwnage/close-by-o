@@ -1,0 +1,18 @@
+allowBuilds:
+  esbuild: true
+  workerd: true
+  unrs-resolver: true
+  sharp: false
+
+overrides:
+  tar: ^7.5.21
+  undici: ^6.28.1
+  ws: ^8.21.0
+  sharp: ^0.35.5
+  minimatch@^9.0.0: 9.0.9
+  toml: ^4.2.0
+  estree-util-value-to-estree: ^3.3.3
+  vite@^5.0.0: ^6.4.4
+  react-router: 6.30.6
+  react-router-dom: 6.30.6
+  postcss-selector-parser@^6.0.0: ^7.1.6

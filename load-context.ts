@@ -5,7 +5,11 @@ import type { PlatformProxy } from "wrangler";
 import { queryFactory } from "./app/lib/db/queries";
 import { schema } from "./app/lib/db/schema";
 
-type Cloudflare = Omit<PlatformProxy<Env>, "dispose">;
+// `ctx` is narrowed to the two members the Pages/Vite load context actually provides;
+// newer `wrangler` types add a required `props` member that is not present at runtime here.
+type Cloudflare = Omit<PlatformProxy<Env>, "dispose" | "ctx"> & {
+  ctx: Pick<PlatformProxy<Env>["ctx"], "waitUntil" | "passThroughOnException">;
+};
 
 declare module "@remix-run/cloudflare" {
   interface AppLoadContext {
